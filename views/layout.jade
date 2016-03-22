@@ -1,42 +1,157 @@
 doctype html
 html
   head
-    title #{title}: Express website
+    title #{title}: Roost Place
+    
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    // jquery library has to locate above javascript declaration because the javascript refer it
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    meta(name='description', content='')
+    meta(name='author', content='')
+            
+    // Bootstrap core CSS
+    link(href='/javascripts/bootstrap/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    // Font Awesome CSS
+    link(href='/stylesheets/font-awesome.min.css', rel='stylesheet', media='screen')
+    // Elegant icons CSS
+    link(href='/stylesheets/simple-line-icons.css', rel='stylesheet', media='screen')
+    //if lte IE 7
+      script(src='assets/js/icons-lte-ie7.js')
+    // Magnific-popup lightbox
+    link(href='/stylesheets/magnific-popup.css', rel='stylesheet')
+    // Owl Carousel
+    link(href='/stylesheets/owl.theme.css', rel='stylesheet')
+    link(href='/stylesheets/owl.carousel.css', rel='stylesheet')
+    // Animate css
+    link(href='/stylesheets/animate.css', rel='stylesheet')
+    // Time and Date piker CSS
+    link(href='/stylesheets/jquery.timepicker.css', rel='stylesheet', media='screen')
+    link(href='/stylesheets/datepicker.css', rel='stylesheet', media='screen')
+    // Custom styles CSS
+    link(href='/stylesheets/style.css', rel='stylesheet', media='screen')
     
   body
-    nav.navbar.navbar-default.navbar-fixed-top
-            .container
-                .navbar-header
-                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', 
-                    aria-expanded='false', aria-controls='navbar')
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href='#') Express Website
-                #navbar.collapse.navbar-collapse
-                    ul.nav.navbar-nav.navbar-right
-                        li(class=(title === 'Home' ? 'active' : ''))
-                            a(href='/') Home
-                        li(class=(title === 'About' ? 'active' : ''))
-                            a(href='/about') About Us
-                        li(class=(title === 'Grid Test' ? 'active' : ''))
-                            a(href='/gridTest') Grid Test
-                        li(class=(title === 'AngularJS Grid Test' ? 'active' : ''))
-                            a(href='/gridTestWithAngular') Grid Test with AngularJS
-                        li(class=(title === 'Contact' ? 'active' : ''))
-                            a(href='/contact') Contact
+    #preloader(style='display: none;')
+      #status(style='display: none;')
+        .status-mes
+        
+    nav.navbar.navbar-custom.navbar-transparent.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#custom-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          //a.navbar-brand(href='index.html') Roost Place
+          a.navbar-brand(href='#home') Roost Place
+        #custom-collapse.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.page-scroll.active
+              a(href='#home') Home
+            li.page-scroll
+              a(href='#about') Our story
+            li.page-scroll
+              a(href='#dishes') Dishes
+            li.page-scroll
+              a(href='#popular') Popular
+            li.page-scroll
+              a(href='#services') Services
+            li.page-scroll
+              a(href='#gallery') Gallery
+            li.page-scroll
+              a(href='#reservations') Reservations
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown') Pages
+              ul.dropdown-menu(role='menu')
+                li.dropdown-submenu
+                  a(href='#') Menu simple
+                  ul.dropdown-menu
+                    li
+                      a(href='menu-simple.html') Menu simple 2 cols
+                    li
+                      a(href='menu-simple-2.html') Menu simple 3 cols
+                li.dropdown-submenu
+                  a(href='#') Menu classic
+                  ul.dropdown-menu
+                    li
+                      a(href='menu-classic-2.html') Menu classic 2 cols
+                    li
+                      a(href='menu-classic.html') Menu classic 3 cols
+                li.dropdown-submenu
+                  a(href='#') Gallery
+                  ul.dropdown-menu
+                    li
+                      a(href='gallery.html') Gallery 3 cols
+                    li
+                      a(href='gallery-2.html') Gallery 4 cols
+                li.dropdown-submenu
+                  a(href='#') Contact
+                  ul.dropdown-menu
+                    li
+                      a(href='contact.html') Contact 1
+                    li
+                      a(href='contact-2.html') Contact 2
+                li.dropdown-submenu
+                  a(href='#') Errors
+                  ul.dropdown-menu
+                    li
+                      a(href='error-404.html') Error 404 Page
+                    li
+                      a(href='error-500.html') Error 500 Page
+                li.dropdown-submenu
+                  a(href='#') Components
+                  ul.dropdown-menu
+                    li
+                      a(href='icons.html') Icons
+                    li
+                      a(href='showcase.html') Showcase
+                    li
+                      a(href='components.html') Components
+                li.dropdown-submenu
+                  a(href='#') Navigation
+                  ul.dropdown-menu
+                    li
+                      a(href='nav-default.html') Default
+                    li
+                      a(href='nav-transparent.html') Transparent
+                            
     block content
-    footer
-        p &copy; 2016, All rights Reserved
 
-    script(src='/javascripts/bootstrap.js')
+    footer#footer
+        .container
+            .row
+            .col-sm-12
+                p.copyright
+                © 2016, All Rights Reserved.
+    .scroll-up
+      a(href='#totop')
+        i.fa.fa-angle-double-up
+    
+    // Javascript files
+    //script(src='/javascripts/bootstrap.js')
+    script(src='/javascripts/jquery-1.11.1.min.js')
+    script(src='/javascripts/bootstrap/js/bootstrap.min.js')
+    // Use for slideshow background
+    script(src='/javascripts/jquery.backstretch.min.js')
+    // Use for video background
+    script(src='/javascripts/video.js')
+    script(src='/javascripts/bigvideo.js')
+    // Date and time picker
+    script(src='/javascripts/bootstrap-datepicker.js')
+    script(src='/javascripts/jquery.datepair.min.js')
+    script(src='/javascripts/jquery.timepicker.min.js')
+    script(src='/javascripts/jqBootstrapValidation.js')
+    // Google Maps
+    script(src='http://maps.google.com/maps/api/js?sensor=true')
+    script(src='/javascripts/gmaps.js')
+    // Other
+    script(src='/javascripts/jquery.matchHeight-min.js')
+    script(src='/javascripts/jquery.magnific-popup.min.js')
+    script(src='/javascripts/twitterFetcher_min.js')
+    script(src='/javascripts/owl.carousel.min.js')
+    script(src='/javascripts/jquery.fitvids.js')
+    script(src='/javascripts/smoothscroll.js')
+    script(src='/javascripts/wow.min.js')
+    // Custom scripts
+    script(src='/javascripts/custom.js')

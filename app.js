@@ -19,7 +19,7 @@ var flash = require('connect-flash');
 // var mongo = require('mongodb');
 // var mongoose = require('mongoose');
 // var db = mongoose.connection;
-var db =require('monk')('developer:hist@ds062898.mongolab.com:62898/azure');
+var db =require('monk')('mongodb://dev:dev@ds047591.mongolab.com:47591/spark');
 
 var app = express();
 

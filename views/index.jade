@@ -3,7 +3,7 @@ extends layout
 block content
     // Home start
     section#home.intro-module.module-image.heightfull.bg-dark-alfa-30
-      .intro
+      // .intro
         .intro-slider
           // Slide 1
           .owl-item
@@ -25,14 +25,47 @@ block content
         .row
           .col-sm-6.col-sm-offset-3
             .module-header.wow.fadeInUp
-              h2.module-title Discover our story
-              h3.module-subtitle Welcome to Leaff
+              h2.module-title 루스트 브랜드 스토리
+              h3.module-subtitle ABOUT ROOST PLACE
         // .row
+        
         .row
           .col-sm-8.col-sm-offset-2.text-center
-            | Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it.
+            | 루스트는 2010년 제주노형점 오픈을 시작으로 총 8개 지점을 오픈하였습니다.
+          .col-sm-8.col-sm-offset-2.text-center
+            | 신선한 식자재들로 요리하며 합리적인 가격으로 편안하게 쉬어 갈 수 있는 휴식처를 제공하는 서비스문화를 
+          .col-sm-8.col-sm-offset-2.text-center
+            | 만들어내어 젊은 남녀 고객과 가족단위, 연령층의 제한없이 많은 사랑을 받고 있습니다. 
+          .col-sm-8.col-sm-offset-2.text-center
+            | 앞으로도 언제 어디서나 더 편안하게 머물러 가실 수 있는 루스트가 되도록 노력하겠습니다.
         // .row
+        br
         .row
+          .col-sm-6.col-sm-offset-2
+            h3.menu-title 브랜드 아이덴티티 소개
+        // .row
+        br
+        .row
+            .col-sm-4.col-sm-offset-2
+                .menu-detail 로고
+                .row(style="text-align: center")
+                    img(src='../images/rst2/logo.png', alt='')
+            .col-sm-4
+                .menu-detail 컬러
+                .row(style="text-align: center")
+                    img(src='../images/rst2/logo_color.png', alt='')
+        // .row
+        br
+        .row
+          .col-sm-8.col-sm-offset-2.text-center
+            | 브랜드 컨셉소개 : 루스트라는 의미는 휴식처라는 의미이며, 휴식처를 컨셉으로 도시에서 생활하는 현대인들의 
+          .col-sm-8.col-sm-offset-2.text-center
+            | 피로를 덜어 줄 수 있는 자연적인 요소들로 정신적으로 편안함을 느끼게 할 수 있는 인테리어와 합리적인 가격으로 
+          .col-sm-8.col-sm-offset-2.text-center
+            | 더 편안하게, 기분 좋게 식사하고 갈 수 있도록 제공하고자 이러한 특징을 살려 브랜드 이미지를 전달합니다.
+        // .row
+        
+        // .row
           .col-sm-6.col-sm-offset-3
             .devider
               img(src='../images/divider-down.svg', alt='')
@@ -54,6 +87,194 @@ block content
     // Callout section end
     // Dishes start
     section#dishes.module
+      .container
+        .row
+          .col-sm-6.col-sm-offset-3
+            .module-header.wow.fadeInUp
+              h2.module-title 메뉴 소개
+              h3.module-subtitle ABOUT MENU
+        .row
+          .col-sm-8.col-sm-offset-2.text-center
+            ul.nav.nav-pills
+              li.active
+                a(data-toggle="tab", href='#menu_tab1') 샐러드
+              li
+                a(data-toggle="tab", href='#menu_tab2') 파스타
+              li
+                a(data-toggle="tab", href='#menu_tab3') 볶음밥
+            .tab-content
+                #menu_tab1.tab-pane.fade.in.active
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_1.png', alt='')
+                        .menu
+                          .row(style="text-align: left")
+                            .col-sm-9
+                              h4.menu-title 제주산 통마늘 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_1.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 버섯 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_1.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 리코타 치즈 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_2.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 제주산 통마늘 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_2.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 버섯 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_2.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 리코타 치즈 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_3.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 제주산 통마늘 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_3.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 버섯 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_3.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 리코타 치즈 샐러드
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                #menu_tab2.tab-pane.fade
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_5.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_5.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_5.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_6.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_6.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_6.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 파스타
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                #menu_tab3.tab-pane.fade
+                  .row
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_7.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 볶음밥
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_7.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 볶음밥
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+                    .col-sm-4
+                        .row(style="text-align: center")
+                            img(src='../images/rst2/salad_7.png', alt='')
+                        .menu
+                          .row
+                            .col-sm-9
+                              h4.menu-title 볶음밥
+                            .col-sm-3.menu-price-detail
+                              h4.menu-price 7,900
+    // section#dishes2.module
       .container
         .row
           .col-sm-6.col-sm-offset-3
@@ -184,6 +405,22 @@ block content
     // Callout section end
     // Popular start
     section#popular.module
+      .container
+        .row
+          .col-sm-6.col-sm-offset-3
+            .module-header.wow.fadeInUp
+              h2.module-title 매장 안내
+              h3.module-subtitle ABOUT STORE
+        .row
+          .col-sm-8.col-sm-offset-2.text-center
+            ul.nav.nav-pills
+              li.active
+                a(data-toggle="tab", href='#store_tab1') 노형점(본점)
+              li
+                a(data-toggle="tab", href='#store_tab2') 베라체첨
+              li
+                a(data-toggle="tab", href='#store_tab3') 제원점
+    // section#popular.module
       .container
         .row
           .col-sm-6.col-sm-offset-3

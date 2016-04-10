@@ -6,13 +6,24 @@
  * General styles
 /* ---------------------------------------------- */
 
+/*
 @import url(http://fonts.googleapis.com/css?family=Dancing+Script:700);
 @import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,600,700,400italic);
+*/
+
+@font-face {
+ font-family: 'NanumBarunGothic';
+ font-style: normal;
+ src: url('../fonts/NanumBarunGothic.eot');
+ src: url('../fonts/NanumBarunGothic.eot') format('embedded-opentype'),
+ url('../fonts/NanumBarunGothic.woff') format('woff'),
+ url('../fonts/NanumBarunGothic.ttf') format('truetype');
+}
 
 body {
 	overflow-x: hidden;
-	font: 400 16px/1.8 'Crimson Text', serif;
-	color: #666;
+	font: 400 16px/1.8 'NanumBarunGothic', serif;
+    color: #666;
 }
 
 img {
@@ -90,7 +101,7 @@ a,
 /* ---------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-	font: 700 54px/1.2 'Crimson Text', serif;
+	font: 700 54px/1.2 'NanumBarunGothic', serif;
 	margin: 0 0 20px;
 	color: #000;
 }
@@ -123,7 +134,7 @@ h6 {
 }
 
 blockquote {
-	font: 700 50px/1.2 'Dancing Script', cursive;
+	font: 700 50px/1.2 'NanumBarunGothic', cursive;
 	margin: 0 0 20px;
 	padding: 0;
 	border: 0;
@@ -142,7 +153,7 @@ blockquote .small {
 .module-title,
 .callout-text,
 .iconbox-title {
-	font: 700 28px/1.2 'Dancing Script', cursive;
+	font: 700 28px/1.2 'NanumBarunGothic', cursive;
 	margin: 0 0 18px;
 }
 
@@ -152,7 +163,7 @@ blockquote .small {
 }
 
 .module-subtitle {
-	font: 400 16px/1.2 'Crimson Text',  serif;
+	font: 400 16px/1.2 'NanumBarunGothic',  serif;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	color: #a7a9ac;
@@ -239,7 +250,7 @@ blockquote .small {
 /* ---------------------------------------------- */
 
 .label {
-	font: 400 italic 10px/1.8 'Crimson Text', serif;
+	font: 400 italic 10px/1.8 'NanumBarunGothic', serif;
 	padding: .2em .6em .2em;
 	letter-spacing: 1px;
 	font-size: 60%;
@@ -543,7 +554,7 @@ textarea.form-control {
 }
 
 #callout-one {
-	background-image: url(../images/home-2.jpg);
+    background-image: url(../images/home-2.png);
 }
 
 #callout-two {
@@ -560,15 +571,17 @@ textarea.form-control {
 
 .module-image {
 	background-color: #222;
-	background-image: url(../images/home-1.jpg);
+	background-image: url(../images/rst2/home-1.jpg);
 	background-repeat: no-repeat;
-	position: relative;
-	z-index: 1;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 	padding: 0;
+	/* 
+    position: relative;
+	z-index: 1;
+    */
 }
 
 .video-background {
@@ -623,7 +636,7 @@ textarea.form-control {
 	position: relative;
 	display: inline-block;
 	padding: 2px 10px 0px 10px;
-	font-family: 'Crimson Text', serif;
+	font-family: 'NanumBarunGothic', serif;
 	letter-spacing: 1px;
 	font-style: italic;
 	font-size: 13px;
@@ -940,7 +953,7 @@ textarea.form-control {
 }
 
 .navbar-custom .navbar-brand {
-	font-family: 'Dancing Script', cursive;
+	font-family: 'NanumBarunGothic', cursive;
 	font-weight: 700;
 	font-size: 32px;
 }
@@ -1306,7 +1319,7 @@ position: absolute;
 @media (max-width: 568px) {
 
 	h1, h2, h3, h4, h5, h6 {
-		font: 700 38px/1.2 'Crimson Text', serif;
+		font: 700 38px/1.2 'NanumBarunGothic', serif;
 		margin: 0 0 20px;
 		color: #000;
 	}
@@ -1339,7 +1352,7 @@ position: absolute;
 	}
 
 	blockquote {
-		font: 700 38px/1.2 'Dancing Script', cursive;
+		font: 700 38px/1.2 'NanumBarunGothic', cursive;
 		margin: 0 0 20px;
 		padding: 0;
 		border: 0;
@@ -1349,7 +1362,7 @@ position: absolute;
 	.module-title,
 	.callout-text,
 	.iconbox-title {
-		font: 700 38px/1.2 'Dancing Script', cursive;
+		font: 700 38px/1.2 'NanumBarunGothic', cursive;
 		margin: 0 0 18px;
 	}
 

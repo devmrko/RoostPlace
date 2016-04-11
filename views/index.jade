@@ -27,8 +27,7 @@ block content
             .module-header.wow.fadeInUp
               h2.module-title 루스트 브랜드 스토리
               h3.module-subtitle ABOUT ROOST PLACE
-        // .row
-        
+        // .row        
         .row
           .col-sm-8.col-sm-offset-2.text-center
             | 루스트는 2010년 제주노형점 오픈을 시작으로 총 8개 지점을 오픈하였습니다.
@@ -64,7 +63,6 @@ block content
           .col-sm-8.col-sm-offset-2.text-center
             | 더 편안하게, 기분 좋게 식사하고 갈 수 있도록 제공하고자 이러한 특징을 살려 브랜드 이미지를 전달합니다.
         // .row
-        
         // .row
           .col-sm-6.col-sm-offset-3
             .devider
@@ -93,6 +91,7 @@ block content
             .module-header.wow.fadeInUp
               h2.module-title 메뉴 소개
               h3.module-subtitle ABOUT MENU
+        // .row
         .row
           .col-sm-8.col-sm-offset-2.text-center
             ul.nav.nav-pills
@@ -274,6 +273,9 @@ block content
                               h4.menu-title 볶음밥
                             .col-sm-3.menu-price-detail
                               h4.menu-price 7,900
+        // .row
+      // .container
+    // Dishes end
     // section#dishes2.module
       .container
         .row
@@ -403,23 +405,136 @@ block content
         // .row
       // .container
     // Callout section end
-    // Popular start
-    section#popular.module
+    // Store Section start
+    section#store.module
       .container
         .row
           .col-sm-6.col-sm-offset-3
             .module-header.wow.fadeInUp
               h2.module-title 매장 안내
               h3.module-subtitle ABOUT STORE
+        // .row
         .row
           .col-sm-8.col-sm-offset-2.text-center
-            ul.nav.nav-pills
+            ul.nav.nav-tabs(id="ul_store")
               li.active
-                a(data-toggle="tab", href='#store_tab1') 노형점(본점)
+                a(data-toggle="tab", href='#tab_store_1') 노형점(본점)
               li
-                a(data-toggle="tab", href='#store_tab2') 베라체첨
+                a(data-toggle="tab", href='#tab_store_2') 베라체첨
               li
-                a(data-toggle="tab", href='#store_tab3') 제원점
+                a(data-toggle="tab", href='#tab_store_3') 제원점
+              li
+                a(data-toggle="tab", href='#tab_store_4') 삼화점
+              li
+                a(data-toggle="tab", href='#tab_store_5') 서귀포점
+              li
+                a(data-toggle="tab", href='#tab_store_6') 시청점
+              li
+                a(data-toggle="tab", href='#tab_store_7') 외도점
+              li
+                a(data-toggle="tab", href='#tab_store_8') 칠성로점
+            .tab-content
+                #tab_store_1.tab-pane.fade.in.active
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 노형점(본점)
+                            .menu-detail 주소: 제주시 수덕로 79 2층(구주소-제주시 노형동 2586-4 2층)
+                            .menu-detail 전화번호 : 064-745-9004
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_2.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 베라체점
+                            .menu-detail 주소: 제주시 승천로73 2층 (구주소-제주시 아라2동 3001-10 농협 2층)
+                            .menu-detail 전화번호 : 064-755-9004
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_3.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 제원점
+                            .menu-detail 주소: 제주시 노연로 118-1 2층(연동, 미도스카이빌)
+                            .menu-detail 전화번호 : 064-747-9004
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_4.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 삼화점
+                            .menu-detail 주소: 제주시 화북1동 1023-5 아현빌딩 3층  
+                            .menu-detail 전화번호 : 064-751-9008
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_5.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 서귀포점
+                            .menu-detail 주소: 신서로 48번길(구주소-서귀포시 강정도 163번지 광진하우스 1층)
+                            .menu-detail 전화번호 : 064-738-9008
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_6.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 시청점
+                            .menu-detail 주소: 제주특별자치도 제주시 중앙로 230-1 1층
+                            .menu-detail 전화번호 : 064-757-9004
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_7.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 외도점
+                            .menu-detail 주소: 제주시 외도일동 우정로 80 1층
+                            .menu-detail 전화번호 : 064-748-9008
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00
+                #tab_store_8.tab-pane.fade
+                  .row
+                    .col-sm-12.menu
+                      .col-sm-4
+                        .row(style="text-align: left")
+                          img(src='../images/rst2/store_1.png', alt='')
+                      .col-sm-8
+                        .row(style="text-align: left")
+                            h4.menu-title 칠성점
+                            .menu-detail 주소: 제주시 중앙로 7길3 2층
+                            .menu-detail 전화번호 : 064-752-9008
+                            .menu-detail 영업시간 : Am 11: 00 - Am 2 : 00                            
+            .row
+                div(id="daum_map", style='width:100%;height:400px;')
+        // .row
+      // .container
+    // Store end        
     // section#popular.module
       .container
         .row
@@ -579,6 +694,63 @@ block content
         .row
           .col-sm-6.col-sm-offset-3
             .module-header.wow.fadeInUp
+              h2.module-title 합리적인 루스트만의 혜택
+              h3.module-subtitle ENJOY ROOST
+        // .row
+        .row
+          .col-sm-3
+            .iconbox
+              .iconbox-body.equal-height
+                .iconbox-icon
+                  span.icon-calendar
+                .iconbox-text
+                  h3.iconbox-title 하루종일 9,900원
+                  .iconbox-desc
+                    | Thus, then, one of our own noble stamp, even a whaleman, is the tutelary guardian of England.
+          .col-sm-3
+            .iconbox
+              .iconbox-body.equal-height
+                .iconbox-icon
+                  span.icon-directions
+                .iconbox-text
+                  h3.iconbox-title 모든메뉴 포장가능
+                  .iconbox-desc
+                    | Thus, then, one of our own noble stamp, even a whaleman, is the tutelary guardian of England.
+          .col-sm-3
+            .iconbox
+              .iconbox-body.equal-height
+                .iconbox-icon
+                  span.icon-map
+                .iconbox-text
+                  h3.iconbox-title 코르크차지 X
+                  .iconbox-desc
+                    | Thus, then, one of our own noble stamp, even a whaleman, is the tutelary guardian of England.
+          .col-sm-3
+            .iconbox
+              .iconbox-body.equal-height
+                .iconbox-icon
+                  span.icon-like
+                .iconbox-text
+                  h3.iconbox-title 새벽2시까지 영업
+                  .iconbox-desc
+                    | Thus, then, one of our own noble stamp, even a whaleman, is the tutelary guardian of England.
+        // .row
+        .row
+          .col-sm-8.col-sm-offset-2.text-center.long-up
+            | 언제 어디서나 편하게 쉬었다가실 수 있는 루스트가 되도록 노력하겠습니다.
+        // .row
+        // .row
+          .col-sm-6.col-sm-offset-3
+            .devider
+              img(src='../images/divider-down.svg', alt='')
+        // .row
+      // .container
+    // Services end
+    // section#services.module
+      .container
+        .row
+          .col-sm-6.col-sm-offset-3
+            .module-header.wow.fadeInUp
               h2.module-title We provide the following
               h3.module-subtitle Services
         // .row
@@ -638,8 +810,8 @@ block content
           .vertical-body
             .vertical
               .module-header.wow.fadeInUp
-                h2.module-title Gallery
-                h3.module-subtitle see the gallery
+                h2.module-title 갤러리
+                h3.module-subtitle SEE THE GALLERY
               .long-down
                 p
                   | The European languages are members of family. Their separate existence is a myth. For science, music Europe uses the same vocabulary.
@@ -768,7 +940,7 @@ block content
       // .container
     // Reservations end
     // Twitter start
-    section#twitter.module.module-gray
+    // section#twitter.module.module-gray
       .container
         .row
           .col-sm-6.col-sm-offset-3
@@ -783,7 +955,7 @@ block content
       // .container
     // Twitter end
     // Subscribe start
-    section#subscribe.module.module-dark
+    // section#subscribe.module.module-dark
       .container
         .row
           .col-sm-6.col-sm-offset-3

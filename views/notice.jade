@@ -1,0 +1,61 @@
+// Notice start
+section#notice.module
+    .container
+        .row
+            .col-sm-6.col-sm-offset-3
+                .module-header.wow.fadeInUp
+                    h2.module-title Make a reservation
+                    h3.module-subtitle Book a table
+        // .row
+        .row
+            .col-sm-8.col-sm-offset-2
+                form#booking-form(role='form', data-mobiletimepiker='On', novalidate='')
+                    .row
+                        .col-sm-6.form-group
+                            label.sr-only(for='bname') Name
+                            input#bname.form-control(type='text', name='bname', placeholder='Name', required='', data-validation-required-message='Please enter your name.')
+                            p.help-block.text-danger
+                        .col-sm-6.form-group
+                            label.sr-only(for='bphone') Phone
+                            input#bphone.form-control(type='number', name='bphone', placeholder='Phone', required='', data-validation-required-message='Please enter your phone number.')
+                            p.help-block.text-danger
+                    // .row
+                    .row
+                        .col-sm-6.form-group
+                            label.sr-only(for='bemail') Email
+                            input#bemail.form-control(type='email', name='bemail', placeholder='Email', required='', data-validation-required-message='Please enter your email address.')
+                            p.help-block
+                        .col-sm-6.form-group
+                            label.sr-only(for='bpeople') How many people?
+                            input#bpeople.form-control(type='text', name='bpeople', placeholder='How many people?', required='', data-validation-required-message='Please enter number of guests.')
+                            p.help-block.text-danger
+                    // .row
+                    .row
+                        .col-sm-6.form-group
+                            label.sr-only(for='bdate') Date
+                            input#bdate.form-control(type='text', name='bdate', placeholder='Date', required='', data-validation-required-message='Please enter reservation date.')
+                            p.help-block.text-danger
+                        .col-sm-6.form-group
+                            label.sr-only(for='btime') Time
+                            input#btime.form-control(type='text', name='btime', placeholder='Time', autocomplete='off', required='', data-validation-required-message='Please enter your arrival time.')
+                            p.help-block.text-danger
+                    // .row
+                    .row
+                        .col-sm-12.form-group
+                            textarea#bmessage.form-control(name='bmessage', rows='4', placeholder='Special Requests', required='', data-validation-required-message='Please enter your special requests.')
+                            p.help-block.text-danger
+                    // .row
+                    .row
+                        .col-sm-12.text-center
+                            button.btn.btn-custom-1(type='submit') Submit
+                    // .row
+                // Ajax response
+                #booking-response.ajax-response
+        // .row
+        .row
+          .col-sm-6.col-sm-offset-3
+            .devider
+              img(src='../images/divider-down.svg', alt='')
+        // .row
+    // .container
+// Notice end

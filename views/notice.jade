@@ -1,61 +1,46 @@
 // Notice start
 section#notice.module
-    .container
+    .container(ng-app="app_notice", ng-controller="ctr_notice", ng-cloak='')
         .row
             .col-sm-6.col-sm-offset-3
                 .module-header.wow.fadeInUp
-                    h2.module-title Make a reservation
-                    h3.module-subtitle Book a table
+                    h2.module-title 루스트 소식
+                    h3.module-subtitle ROOST NEWS
         // .row
         .row
-            .col-sm-8.col-sm-offset-2
-                form#booking-form(role='form', data-mobiletimepiker='On', novalidate='')
-                    .row
-                        .col-sm-6.form-group
-                            label.sr-only(for='bname') Name
-                            input#bname.form-control(type='text', name='bname', placeholder='Name', required='', data-validation-required-message='Please enter your name.')
-                            p.help-block.text-danger
-                        .col-sm-6.form-group
-                            label.sr-only(for='bphone') Phone
-                            input#bphone.form-control(type='number', name='bphone', placeholder='Phone', required='', data-validation-required-message='Please enter your phone number.')
-                            p.help-block.text-danger
-                    // .row
-                    .row
-                        .col-sm-6.form-group
-                            label.sr-only(for='bemail') Email
-                            input#bemail.form-control(type='email', name='bemail', placeholder='Email', required='', data-validation-required-message='Please enter your email address.')
-                            p.help-block
-                        .col-sm-6.form-group
-                            label.sr-only(for='bpeople') How many people?
-                            input#bpeople.form-control(type='text', name='bpeople', placeholder='How many people?', required='', data-validation-required-message='Please enter number of guests.')
-                            p.help-block.text-danger
-                    // .row
-                    .row
-                        .col-sm-6.form-group
-                            label.sr-only(for='bdate') Date
-                            input#bdate.form-control(type='text', name='bdate', placeholder='Date', required='', data-validation-required-message='Please enter reservation date.')
-                            p.help-block.text-danger
-                        .col-sm-6.form-group
-                            label.sr-only(for='btime') Time
-                            input#btime.form-control(type='text', name='btime', placeholder='Time', autocomplete='off', required='', data-validation-required-message='Please enter your arrival time.')
-                            p.help-block.text-danger
-                    // .row
-                    .row
-                        .col-sm-12.form-group
-                            textarea#bmessage.form-control(name='bmessage', rows='4', placeholder='Special Requests', required='', data-validation-required-message='Please enter your special requests.')
-                            p.help-block.text-danger
-                    // .row
-                    .row
-                        .col-sm-12.text-center
-                            button.btn.btn-custom-1(type='submit') Submit
-                    // .row
-                // Ajax response
-                #booking-response.ajax-response
+            //.col-md-12
+            .col-sm-8.col-sm-offset-2.text-right
+                form.form-inline
+                    .form-group
+                        input.form-control(id='id_searchText', name='id_searchText', 
+                            ng-keyup="$event.keyCode == 13 ? searchClick() : null", 
+                            type='text', placeholder='Search words...', ng-model='searchText')
+                        input.btn.btn-custom-1(type='button', value='Search', ng-click='searchClick()') 
         // .row
+        br
         .row
-          .col-sm-6.col-sm-offset-3
-            .devider
-              img(src='../images/divider-down.svg', alt='')
+            .col-sm-8.col-sm-offset-2.text-center
+                .table-responsive
+                    table.table
+                        thead
+                            th(width="10%", style="text-align: center") 번호
+                            th(width="60%", style="text-align: center") 제목
+                            th(width="10%", style="text-align: center") 작성자
+                            th(width="10%", style="text-align: center") 작성일
+                            th(width="10%", style="text-align: center") 조회
+                        tbody
+                            tr(ng-repeat="item in test_cols", style="cursor:pointer", ng-click='rowClick($index)')
+                                td(id='col_index_{{$index}}') {{$index + 1}}
+                                td(id='col_contents_{{$index}}') {{item.title}}
+                                td(id='col_tags_{{$index}}') {{item.reg_nm}}
+                                td(id='col_tags_{{$index}}') {{item.reg_dt}}
+                                td(id='col_tags_{{$index}}') {{item.srch_cnt}}
         // .row
+        //form.form-inline(method='post', action='/gridTestWithAngular/next')
+            .form-group
+                .row
+                    .col-md-12
+                        input.btn.btn-default(type='button',value='Next...', ng-click='nextClick()')
+        br
     // .container
 // Notice end

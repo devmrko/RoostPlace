@@ -1,6 +1,6 @@
-var obj_NgApp = angular.module('app_gridTest', []);
+var obj_NgApp = angular.module('app_notice', []);
 
-obj_NgApp.controller('ctr_gridTest', function ($scope, $http, $document, $window) {
+obj_NgApp.controller('ctr_notice', function ($scope, $http, $document, $window) {
 
     var baseUrl = '/gridTestWithAngular';
 

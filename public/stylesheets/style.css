@@ -554,15 +554,15 @@ textarea.form-control {
 }
 
 #callout-one {
-    background-image: url(../images/home-2.jpg);
+    background-image: url(../images/rst3/home-2.jpg);
 }
 
 #callout-two {
-	background-image: url(../images/home-3.jpg);
+	background-image: url(../images/rst3/home-3.jpg);
 }
 
 #callout-three {
-	background-image: url(../images/home-4.jpg);
+	background-image: url(../images/rst3/home-4.jpg);
 }
 
 /* ---------------------------------------------- /*
@@ -571,7 +571,7 @@ textarea.form-control {
 
 .module-image {
 	background-color: #222;
-	background-image: url(../images/rst2/home-1.jpg);
+	background-image: url(../images/rst3/home-1.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

@@ -577,15 +577,15 @@ textarea.form-control {
 }
 
 #callout-one {
-    background-image: url(../images/rst3/home-2.jpg);
+    background-image: url(../images/main/home-2.jpg);
 }
 
 #callout-two {
-	background-image: url(../images/rst3/home-3.jpg);
+	background-image: url(../images/main/home-3.jpg);
 }
 
 #callout-three {
-	background-image: url(../images/rst3/home-4.jpg);
+	background-image: url(../images/main/home-4.jpg);
 }
 
 /* ---------------------------------------------- /*
@@ -594,7 +594,7 @@ textarea.form-control {
 
 .module-image {
 	background-color: #222;
-	background-image: url(../images/rst3/home-1.jpg);
+	background-image: url(../images/main/home-1.jpg);
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -672,7 +672,7 @@ textarea.form-control {
 /* ---------------------------------------------- */
 
 .iconbox {
-	background: #D51225;
+	background: #fae7d7;
 	text-align: center;
 	padding: 15px;
 	-webkit-transition: all 0.2s ease-in-out;
@@ -694,7 +694,7 @@ textarea.form-control {
 }
 
 .iconbox-title {
-	color: #FFFFFF;
+	color: #000;
 	margin: 0 0 15px;
 	padding: 0;
 }
@@ -767,6 +767,7 @@ textarea.form-control {
 	border: 1px solid rgba(0,0,0,.1);
 	display: table;
 	height: 100%;
+	width: 100%;
 	text-align: center;
 }
 

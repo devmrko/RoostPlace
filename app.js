@@ -52,10 +52,6 @@ app.use(session({
 
 // router js
 var routes = require('./routes/index');
-var about = require('./routes/about');
-var gridTest = require('./routes/gridTest');
-var gridTestWithAngular = require('./routes/gridTestWithAngular');
-var contact = require('./routes/contact');
 
 // Passport
 app.use(passport.initialize());
@@ -90,10 +86,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/about', about);
-app.use('/gridTest', gridTest);
-app.use('/gridTestWithAngular', gridTestWithAngular);
-app.use('/contact', contact);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

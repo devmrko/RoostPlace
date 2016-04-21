@@ -211,7 +211,7 @@
 			customCallback: handleTweets
 		};
 
-		twitterFetcher.fetch(twitterConfig);
+		//twitterFetcher.fetch(twitterConfig);
 
 		function handleTweets(tweets) {
 			var x = tweets.length;

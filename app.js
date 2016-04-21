@@ -56,6 +56,7 @@ var about = require('./routes/about');
 var gridTest = require('./routes/gridTest');
 var gridTestWithAngular = require('./routes/gridTestWithAngular');
 var contact = require('./routes/contact');
+var memo = require('./routes/memo');
 
 // Passport
 app.use(passport.initialize());
@@ -94,6 +95,7 @@ app.use('/about', about);
 app.use('/gridTest', gridTest);
 app.use('/gridTestWithAngular', gridTestWithAngular);
 app.use('/contact', contact);
+app.use('/memo', memo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

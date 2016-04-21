@@ -19,6 +19,188 @@ obj_NgApp.factory("sharedDObj", function () {
     return {};
 });
 
+obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document, $window, $location) {
+
+    $scope.sharedDObj = sharedDObj;
+
+    var baseUrl = '/memo';
+
+    $scope.total_cnt = 0;
+    $scope.maxPaginationPerPage = 5;
+    $scope.curPage = 1;
+    $scope.perPage = 5;
+    $scope.completeBool = true;
+
+    $scope.selectedBadge = '';
+
+    $document.ready(function () {
+
+        $scope.searchTag = $scope.sharedDObj.searchCriteria != undefined ? $scope.sharedDObj.searchCriteria.searchTags : undefined;
+
+        /*
+        $( "#inp_date" ).datepicker({
+          defaultDate: "",
+          changeMonth: true,
+          changeYear: true,
+          numberOfMonths: 1,
+          dateFormat    : "yy-mm-dd"
+        });
+        */
+        
+        // Loading 시 Search 로딩
+        //$scope.searchClick($scope.searchTag);
+
+    });
+    
+    $scope.searchClick = function (searchTag) {
+        
+        console.log("memo.js searchClick....: " + searchTag);
+        
+        $scope.selectedBadge = searchTag;
+
+        // $scope.cancleClick();
+        if(searchTag == undefined) {
+            $scope.searchTag = 'All';
+            // $scope.sharedDObj.searchCriteria.searchTags = 'All';
+        } else {
+            $scope.searchTag = searchTag;
+
+        }
+        
+        console.log("memo.js searchCriteria....: " + $scope.sharedDObj.searchCriteria);
+        
+        if($scope.sharedDObj.searchCriteria != undefined) {
+            $scope.sharedDObj.searchCriteria.searchTags = searchTag;
+        }
+
+        $scope.curPage = 1;
+        searchHanlder();
+    }
+
+    $scope.pageChanged = function() {
+        searchHanlder();
+    }
+
+    $scope.completeClick = function (sel_id) {
+        var ctrUrl = baseUrl + '/complete';
+
+        var dataObj = returnSearchCriteria();
+        addDataObj(jQuery, dataObj, "sel_id", sel_id);
+
+        $http.post(ctrUrl, dataObj).success(function (returnData) {
+            $scope.cancleClick();
+            // searchResultHandler(returnData);
+        }).error(function (data, status, headers, config) {
+            alert('error: ' + status);
+        });
+
+    }
+
+    $scope.cancelCompletionClick = function (sel_id) {
+        var ctrUrl = baseUrl + '/cancelComplete';
+
+        var dataObj = returnSearchCriteria();
+        addDataObj(jQuery, dataObj, "sel_id", sel_id);
+
+        $http.post(ctrUrl, dataObj).success(function (returnData) {
+            $scope.cancleClick();
+            // searchResultHandler(returnData);
+        }).error(function (data, status, headers, config) {
+            alert('error: ' + status);
+        });
+
+    }
+    
+    $scope.prevClick = function() {
+        // $scope.cancleClick();
+        $scope.curPage = $scope.curPage - 1;
+        searchHanlder();
+    }
+
+    $scope.nextClick = function () {
+        // $scope.cancleClick();
+        if ($scope.test_cols.length == 0) {
+            alert('There is no more page.')
+        } else {
+            $scope.curPage = $scope.curPage + 1;
+            searchHanlder();
+        }
+    }
+
+    $scope.newPostClick = function () {
+        $scope.sharedDObj.searchCriteria = returnSearchCriteria();
+        $location.path('/detail/' + 'N');
+    }
+
+    $scope.rowClick = function (idx) {
+        // if ($scope.selInx == idx) {
+        //     $location.url('/list');
+        //     $('#summernote').summernote('destroy');
+        // } else {
+            $scope.sharedDObj.searchCriteria = returnSearchCriteria();
+            $location.path('/detail/' + $scope.test_cols[idx]._id);
+        // }
+    }
+
+    $scope.cancleClick = function () {
+        $('#summernote').summernote('destroy');
+        $location.url('/list');
+
+    }
+    
+    function formattedDate(date) {
+
+        //ISO Date로 전환(달, 일자를 2자리 수로 고정하기 위해)
+        var isoDate = date.toISOString();
+
+        //정규 표현식으로 변환(MM/DD/YYYY)
+        //result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
+        result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$1-$2-$3');
+        return result;
+    }
+
+    function subtractDate(date, sub) {
+        //sub 값이 있을 경우(빼기)
+        if (sub != undefined) {
+            date.setDate(date.getDate() - sub);
+        }
+        return date;
+    }
+
+    function returnSearchCriteria() {
+        var dataObj = {};
+        addDataObj(jQuery, dataObj, "searchText", $scope.searchText);
+        if($scope.searchTag != 'All') {
+            addDataObj(jQuery, dataObj, "searchTags", $scope.searchTag);
+        }
+        addDataObj(jQuery, dataObj, "completeYn", $scope.completeBool == true ? 'n' : 'y');
+        addDataObj(jQuery, dataObj, "pageNo", $scope.curPage);
+        return dataObj;
+    }
+
+    function searchResultHandler(returnData) {
+        $scope.test_cols = returnData.test_cols;
+        $scope.keywords = returnData.keywords;
+        $scope.total_cnt = returnData.total_cnt;
+    }
+
+    function searchHanlder() {
+        var ctrUrl = baseUrl + '/search';
+
+        $http.post(ctrUrl, returnSearchCriteria()).success(function (returnData) {
+            searchResultHandler(returnData);
+
+        }).error(function (data, status, headers, config) {
+            alert('error: ' + status);
+        });
+    }
+
+    function addDataObj(jQuery, dataObj, keyNm, keyVal) {
+        eval("jQuery.extend(dataObj, {" + keyNm + " : keyVal})");
+    }
+
+});
+
 obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$document', '$location', function ($scope, $routeParams, $http, $document, $location, sharedDObj) {
 
     $scope.sharedDObj = sharedDObj;
@@ -128,178 +310,3 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
     }
 
 }]);
-
-obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document, $window, $location) {
-
-    $scope.sharedDObj = sharedDObj;
-
-    var baseUrl = '/memo';
-
-    $scope.total_cnt = 0;
-    $scope.maxPaginationPerPage = 5;
-    $scope.curPage = 1;
-    $scope.perPage = 5;
-    $scope.completeBool = true;
-
-    $scope.selectedBadge = '';
-
-    $document.ready(function () {
-
-        $scope.searchTag = $scope.sharedDObj.searchCriteria != undefined ? $scope.sharedDObj.searchCriteria.searchTags : undefined;
-
-        $( "#inp_date" ).datepicker({
-          defaultDate: "",
-          changeMonth: true,
-          changeYear: true,
-          numberOfMonths: 1,
-          dateFormat    : "yy-mm-dd"
-        });
-
-        // Loading 시 Search 로딩
-        //$scope.searchClick($scope.searchTag);
-
-    });
-
-    function formattedDate(date) {
-
-        //ISO Date로 전환(달, 일자를 2자리 수로 고정하기 위해)
-        var isoDate = date.toISOString();
-
-        //정규 표현식으로 변환(MM/DD/YYYY)
-        //result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
-        result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$1-$2-$3');
-        return result;
-    }
-
-    function subtractDate(date, sub) {
-        //sub 값이 있을 경우(빼기)
-        if (sub != undefined) {
-            date.setDate(date.getDate() - sub);
-        }
-        return date;
-    }
-
-    $scope.searchClick = function (searchTag) {
-
-        $scope.selectedBadge = searchTag;
-
-        // $scope.cancleClick();
-        if(searchTag == undefined) {
-            $scope.searchTag = 'All';
-            // $scope.sharedDObj.searchCriteria.searchTags = 'All';
-        } else {
-            $scope.searchTag = searchTag;
-
-        }
-        if($scope.sharedDObj.searchCriteria != undefined) {
-            $scope.sharedDObj.searchCriteria.searchTags = searchTag;
-        }
-
-        $scope.curPage = 1;
-        searchHanlder();
-    }
-
-    $scope.pageChanged = function() {
-        searchHanlder();
-    }
-
-    $scope.completeClick = function (sel_id) {
-        var ctrUrl = baseUrl + '/complete';
-
-        var dataObj = returnSearchCriteria();
-        addDataObj(jQuery, dataObj, "sel_id", sel_id);
-
-        $http.post(ctrUrl, dataObj).success(function (returnData) {
-            $scope.cancleClick();
-            // searchResultHandler(returnData);
-        }).error(function (data, status, headers, config) {
-            alert('error: ' + status);
-        });
-
-    }
-
-    $scope.cancelCompletionClick = function (sel_id) {
-        var ctrUrl = baseUrl + '/cancelComplete';
-
-        var dataObj = returnSearchCriteria();
-        addDataObj(jQuery, dataObj, "sel_id", sel_id);
-
-        $http.post(ctrUrl, dataObj).success(function (returnData) {
-            $scope.cancleClick();
-            // searchResultHandler(returnData);
-        }).error(function (data, status, headers, config) {
-            alert('error: ' + status);
-        });
-
-    }
-
-    function returnSearchCriteria() {
-        var dataObj = {};
-        addDataObj(jQuery, dataObj, "searchText", $scope.searchText);
-        if($scope.searchTag != 'All') {
-            addDataObj(jQuery, dataObj, "searchTags", $scope.searchTag);
-        }
-        addDataObj(jQuery, dataObj, "completeYn", $scope.completeBool == true ? 'n' : 'y');
-        addDataObj(jQuery, dataObj, "pageNo", $scope.curPage);
-        return dataObj;
-    }
-
-    function searchResultHandler(returnData) {
-        $scope.test_cols = returnData.test_cols;
-        $scope.keywords = returnData.keywords;
-        $scope.total_cnt = returnData.total_cnt;
-    }
-
-    function searchHanlder() {
-        var ctrUrl = baseUrl + '/search';
-
-        $http.post(ctrUrl, returnSearchCriteria()).success(function (returnData) {
-            searchResultHandler(returnData);
-
-        }).error(function (data, status, headers, config) {
-            alert('error: ' + status);
-        });
-    }
-
-    $scope.prevClick = function() {
-        // $scope.cancleClick();
-        $scope.curPage = $scope.curPage - 1;
-        searchHanlder();
-    }
-
-    $scope.nextClick = function () {
-        // $scope.cancleClick();
-        if ($scope.test_cols.length == 0) {
-            alert('There is no more page.')
-        } else {
-            $scope.curPage = $scope.curPage + 1;
-            searchHanlder();
-        }
-    }
-
-    $scope.newPostClick = function () {
-        $scope.sharedDObj.searchCriteria = returnSearchCriteria();
-        $location.path('/detail/' + 'N');
-    }
-
-    $scope.rowClick = function (idx) {
-        // if ($scope.selInx == idx) {
-        //     $location.url('/list');
-        //     $('#summernote').summernote('destroy');
-        // } else {
-            $scope.sharedDObj.searchCriteria = returnSearchCriteria();
-            $location.path('/detail/' + $scope.test_cols[idx]._id);
-        // }
-    }
-
-    $scope.cancleClick = function () {
-        $('#summernote').summernote('destroy');
-        $location.url('/list');
-
-    }
-
-    function addDataObj(jQuery, dataObj, keyNm, keyVal) {
-        eval("jQuery.extend(dataObj, {" + keyNm + " : keyVal})");
-    }
-
-});

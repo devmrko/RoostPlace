@@ -3,24 +3,22 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-
-//
 var nodemailer = require('nodemailer');
-//
 var session = require('express-session');
 var passport = require('passport');
 var expressValidator = require('express-validator');
 var LocalStrategy = require('passport-local').Strategy;
-//
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var flash = require('connect-flash');
-//
+
+//------------- mongojs -----------------------------------------------------------------
 // var mongo = require('mongodb');
 // var mongoose = require('mongoose');
 // var db = mongoose.connection;
 //var db =require('monk')('mongodb://dev:dev@ds047591.mongolab.com:47591/spark');
-var db =require('monk')('mongodb://psw7194:qkrtkddn@ds047591.mongolab.com:47591/spark');
+var db = require('monk')('mongodb://psw7194:qkrtkddn@ds047591.mongolab.com:47591/spark');
+//---------------------------------------------------------------------------------------
 
 var app = express();
 
@@ -38,7 +36,7 @@ var upload = multer({ dest: './uploads' });
 app.use(upload);
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,14 +47,6 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
-
-// router js
-var routes = require('./routes/index');
-var about = require('./routes/about');
-var gridTest = require('./routes/gridTest');
-var gridTestWithAngular = require('./routes/gridTestWithAngular');
-var contact = require('./routes/contact');
-var memo = require('./routes/memo');
 
 // Passport
 app.use(passport.initialize());
@@ -90,12 +80,13 @@ app.use(function(req, res, next) {
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// router js ----------------------------------------
+var routes = require('./routes/index');
+var memo = require('./routes/memo');
+
 app.use('/', routes);
-app.use('/about', about);
-app.use('/gridTest', gridTest);
-app.use('/gridTestWithAngular', gridTestWithAngular);
-app.use('/contact', contact);
 app.use('/memo', memo);
+//---------------------------------------------------
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

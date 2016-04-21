@@ -68,28 +68,24 @@ function doJsonSearch(req, res, searchText, searchTags, pageNo, completeYn) {
     var db = req.db;
     var test_cols = db.get('memo');
     var searchQeury;
+    
     if(searchTags != 'All') {
         if(completeYn == 'y') {
-            searchQeury = {"contents": { "$regex": searchText }, "tags": searchTags, 'reg_id': req.user.name };
+            searchQeury = {"contents": { "$regex": searchText }, "tags": searchTags };
         } else {
-            searchQeury = {"complete": {"$ne": 'y'}, "contents": { "$regex": searchText }, "tags": searchTags, 'reg_id': req.user.name };
+            searchQeury = {"complete": {"$ne": 'y'}, "contents": { "$regex": searchText }, "tags": searchTags};
         }
     } else {
         if(completeYn == 'y') {
-            searchQeury = {"contents": { "$regex": searchText }, 'reg_id': req.user.name };
+            searchQeury = {"contents": { "$regex": searchText }};
         } else {
-            searchQeury = {"complete": {"$ne": 'y'}, "contents": { "$regex": searchText }, 'reg_id': req.user.name };
+            searchQeury = { "complete": {"$ne": 'y'}, "contents": { "$regex": searchText } };
         }
     }
     // var searchFields = {_id: 1, tags: 1, title: 1, edit_date: 1, contents: 0, reg_date: 0, complete: 0, due_date: 0, notice_bool: 0, reg_id: 0};
     var searchFields = {contents: 0, reg_date: 0, complete: 0, due_date: 0, notice_bool: 0, reg_id: 0};
 
     async.parallel([
-        function(callback) {
-            test_cols.distinct('tags', {'reg_id': req.user.name}, function (err, categories) {
-                callback(null, categories.sort());
-            });
-        },
         function(callback) {
             test_cols.find(searchQeury, { fields: searchFields, sort: { edit_date: -1 }, skip: (pageNo - 1) * perPage, limit: perPage },
                 function (err, test_cols) {
@@ -104,12 +100,12 @@ function doJsonSearch(req, res, searchText, searchTags, pageNo, completeYn) {
         }
     ], function(err, results) {
         res.jsonp({
-                        "test_cols": results[1],
-                        'pageNo': pageNo,
-                        'keywords': results[0],
-                        'searchText': searchText,
-                        'total_cnt': results[2]
-                    });
+            "test_cols" : results[0],
+            'pageNo' : pageNo,
+            //'keywords': results[0],
+            'searchText' : searchText,
+            'total_cnt' : results[1]
+            });
     });
 
 }
@@ -133,11 +129,17 @@ router.post('/searchDetail', function (req, res, next) {
 });
 
 function searchHandler(req, res, next) {
+    
+    console.log("S searchHandler");
+    
     var searchText = req.body.searchText === undefined ? '' : req.body.searchText;
     var pageNo = req.body.pageNo === undefined ? 1 : req.body.pageNo;
     var searchTags = req.body.searchTags === undefined ? 'All' : req.body.searchTags;
     var completeYn = req.body.completeYn === undefined ? 'y' : req.body.completeYn;
+    
     doJsonSearch(req, res, searchText, searchTags, pageNo, completeYn);
+    
+    console.log("E searchHandler");
 }
 
 router.post('/savePost', function (req, res, next) {

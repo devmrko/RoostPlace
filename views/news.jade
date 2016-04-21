@@ -2,27 +2,33 @@
 section#news.module
     .container(ng-controller="ctr_memo", ng-app='app_memo' ng-cloak='')
         .row
+            .col-sm-6.col-sm-offset-3
+                .module-header.wow.fadeInUp
+                    h2.module-title 루스트 소식
+                    h3.module-subtitle ROOST NEWS
+        .row
             .col-md-12
                 ng-view Loading...
         .row
             script(type='text/ng-template', id='list.html')
                 .row
                     .col-md-12
-                        form.form-inline
+                        form.form-inline(align="right")
                             .form-group
-                                label Search words:&nbsp
+                                //label Search words:&nbsp
                                 input.form-control(id='id_searchText', name='id_searchText',
                                     ng-keyup="$event.keyCode == 13 ? searchClick() : null",
                                     type='text', placeholder='Search words...', ng-model='searchText')
-                                .checkbox
+                                //.checkbox
                                     label
                                         input(type="checkbox", ng-model="completeBool")
                                         |&nbsp;exclude complete&nbsp;
+                                &nbsp;
                                 input.btn.btn-default(type='button', value='Search', ng-click='searchClick()')
-                                input.btn.btn-default(type='button',value='New post', ng-click='newPostClick()')
-                                label &nbsp;total count: &nbsp;{{total_cnt}}
-                br
-                .row
+                                //input.btn.btn-default(type='button',value='New post', ng-click='newPostClick()')
+                                //label &nbsp;total count: &nbsp;{{total_cnt}}
+                //br
+                //.row
                     .col-md-12
                         span.badge(style="cursor:pointer", ng-click='searchClick("All")') All
                         span.badge(style="cursor:pointer", ng-repeat="item in keywords", ng-click="searchClick(item)", ng-class="{'selected-badge': item == sharedDObj.searchCriteria.searchTags}") {{item}}
@@ -30,17 +36,17 @@ section#news.module
                 .table-responsive
                     table.table.mytable
                         thead
-                            th #
-                            th Title
-                            th Tags
-                            th.un Edit date
+                            th(width="10%", style="text-align: center") 번호
+                            th(width="60%", style="text-align: center") 제목
+                            th(width="20%", style="text-align: center") 작성일
+                            th(width="10%", style="text-align: center") 조회
                         tbody
                             tr(ng-repeat="item in test_cols", style="cursor:pointer", ng-click='rowClick($index)')
-                                td(id='col_index_{{$index}}') {{((curPage - 1) * perPage) + $index + 1}}
-                                td(id='col_contents_{{$index}}') {{item.title}}
-                                td(id='col_tags_{{$index}}')
+                                td(id='col_index_{{$index}}', style="text-align: center") {{((curPage - 1) * perPage) + $index + 1}}
+                                td(id='col_contents_{{$index}}', style="text-align: left") {{item.title}}
+                                td(id='col_date_{{$index}}', style="text-align: center") {{item.edit_date}}
+                                td(id='col_tags_{{$index}}', style="text-align: center")
                                     span.badge {{item.tags}}
-                                td.un(id='col_date_{{$index}}') {{item.edit_date}}
 
                 div(style='text-align: center;')
                     pagination.pagination-sm(boundary-links='true', total-items='total_cnt', ng-model='curPage', ng-change='pageChanged()', items-per-page='perPage', max-size='maxPaginationPerPage', previous-text='‹', next-text='›', first-text='«', last-text='»')

@@ -15,7 +15,8 @@ var config = require('./models/config.json');
 
 //------------- mongojs -----------------------------------------------------------------
 //var db = require('monk')(config.db_connection_url);
-var db = require('monk')(process.env.db_connection_url);
+//var db = require('monk')(process.env.db_connection_url);
+var db = require('monk')('mongodb://psw7194:qkrtkddn@ds047591.mongolab.com:47591/spark');
 //---------------------------------------------------------------------------------------
 
 var app = express();

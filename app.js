@@ -14,7 +14,8 @@ var flash = require('connect-flash');
 var config = require('./models/config.json');
 
 //------------- mongojs -----------------------------------------------------------------
-var db = require('monk')(config.db_connection_url);
+//var db = require('monk')(config.db_connection_url);
+var db = require('monk')(process.env.db_connection_url);
 //---------------------------------------------------------------------------------------
 
 var app = express();

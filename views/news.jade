@@ -11,69 +11,53 @@ section#news.module
                 ng-view Loading...
         .row
             script(type='text/ng-template', id='list.html')
-                .row
-                    .col-md-12
+                //.row
+                    .col-sm-9.col-sm-offset-2.text-center
                         form.form-inline(align="right")
                             .form-group
-                                //label Search words:&nbsp
                                 input.form-control(id='id_searchText', name='id_searchText',
                                     ng-keyup="$event.keyCode == 13 ? searchClick() : null",
                                     type='text', placeholder='Search words...', ng-model='searchText')
-                                //.checkbox
-                                    label
-                                        input(type="checkbox", ng-model="completeBool")
-                                        |&nbsp;exclude complete&nbsp;
                                 &nbsp;
-                                input.btn.btn-default(type='button', value='Search', ng-click='searchClick()')
-                                //input.btn.btn-default(type='button',value='New post', ng-click='newPostClick()')
-                                //label &nbsp;total count: &nbsp;{{total_cnt}}
-                //br
-                //.row
-                    .col-md-12
-                        span.badge(style="cursor:pointer", ng-click='searchClick("All")') All
-                        span.badge(style="cursor:pointer", ng-repeat="item in keywords", ng-click="searchClick(item)", ng-class="{'selected-badge': item == sharedDObj.searchCriteria.searchTags}") {{item}}
-
-                .table-responsive
-                    table.table.mytable
-                        thead
-                            th(width="10%", style="text-align: center") 번호
-                            th(width="60%", style="text-align: center") 제목
-                            th(width="20%", style="text-align: center") 작성일
-                            th(width="10%", style="text-align: center") 조회
-                        tbody
-                            tr(ng-repeat="item in test_cols", style="cursor:pointer", ng-click='rowClick($index)')
-                                td(id='col_index_{{$index}}', style="text-align: center") {{((curPage - 1) * perPage) + $index + 1}}
-                                td(id='col_contents_{{$index}}', style="text-align: left") {{item.title}}
-                                td(id='col_date_{{$index}}', style="text-align: center") {{item.edit_date}}
-                                td(id='col_tags_{{$index}}', style="text-align: center")
-                                    span.badge {{item.tags}}
-
-                div(style='text-align: center;')
-                    pagination.pagination-sm(boundary-links='true', total-items='total_cnt', ng-model='curPage', ng-change='pageChanged()', items-per-page='perPage', max-size='maxPaginationPerPage', previous-text='‹', next-text='›', first-text='«', last-text='»')
+                                input.btn.btn-default(type='button', value='검색', ng-click='searchClick()', style="height: 33px")
+                .row
+                    .col-sm-9.col-sm-offset-2.text-center
+                        .table-responsive
+                            table.table.mytable
+                                thead
+                                    th(width="10%", style="text-align: center") 번호
+                                    th(style="text-align: center") 제목
+                                    th.un(width="15%", style="text-align: center") 작성일
+                                    th(width="10%", style="text-align: center") 조회
+                                tbody
+                                    tr(ng-repeat="item in test_cols", style="cursor:pointer", ng-click='rowClick($index)')
+                                        td(id='col_index_{{$index}}', style="text-align: center") {{((curPage - 1) * perPage) + $index + 1}}
+                                        td(id='col_contents_{{$index}}', style="text-align: left") {{item.title}}
+                                        td.un(id='col_date_{{$index}}', style="text-align: center") {{item.due_date}}
+                                        td(id='col_tags_{{$index}}', style="text-align: center")
+                                            span.badge {{item.hits}}
+                .row
+                    .col-sm-9.col-sm-offset-2.text-center
+                        div
+                            pagination.pagination-sm(boundary-links='true', total-items='total_cnt', ng-model='curPage', ng-change='pageChanged()', items-per-page='perPage', max-size='maxPaginationPerPage', previous-text='‹', next-text='›', first-text='«', last-text='»')
 
             script(type='text/ng-template', id='detail.html')
-                form.form-inline(method='post', action='/memo/save')
-                    .form-group
-                        .row(id='id_editComp')
-                            .col-md-12
-                                label Title: &nbsp
-                                input.form-control(id='id_sel_title', name='sel_title', type='text', ng-model='sel_title', style="width: 100%")
-                            .col-md-12
-                                label Contents: &nbsp
-                                div(id="summernote")
-                            .col-md-12
-                                label Tags: &nbsp
-                                input.form-control(id='id_sel_tags', name='sel_tags', type='text', ng-model='sel_tags', style="width: 100%")
-                            .col-md-12
-                                label Due date: &nbsp
-                                input#inp_date.form-f21(type='text', ng-model='sel_due_date', name='sel_due_date', placeholder='yyyy-mm-dd', style='width: 100%')
-                                .checkbox
-                                    label
-                                        input(type="checkbox", ng-model="sel_notice_bool", name='sel_notice_bool')
-                                        |&nbsp;use notice
-                            .col-md-12
-                                input.btn.btn-default(type='button',value='Save', ng-click='savePost()')
-                                input.btn.btn-default(type='button',value='Complete', ng-click='completeClick(sel_id)', ng-hide="!completeButtonBool || sel_id == ''")
-                                input.btn.btn-default(type='button',value='Cancel Completion', ng-click='cancelCompletionClick(sel_id)', ng-hide="completeButtonBool || sel_id == ''")
-                                input.btn.btn-default(type='button',value='Cancel', ng-click='cancleClick()')
-                                input.form-control(name='sel_id', type='text', ng-model='sel_id', ng-hide='true')
+                .row
+                    .col-sm-9.col-sm-offset-2.text-center
+                        form.form-inline(method='post', action='/memo/save')
+                            .form-group
+                                .row(id='id_editComp')
+                                    .col-sm-12
+                                        label(style="width: 10%") 제 목: &nbsp
+                                        input.form-control(id='id_sel_title', name='sel_title', type='text', ng-model='sel_title', style="width: 90%")
+                                    .col-sm-12
+                                        label(style="width: 10%") 내 용: &nbsp
+                                        input.form-control(id='id_sel_title', name='sel_contents', type='text', ng-model='sel_contents', style="width: 90%; height: 200px")
+                                    .col-sm-12
+                                        div(style="padding: 10px 0 0")
+                                            label(style="width: 10%") 작성일: &nbsp
+                                            input.form-control(type='text', ng-model='sel_due_date', name='sel_due_date', style="width: 78%")
+                                            label(style="width: 2%")
+                                            input.btn.btn-default(type='button',value='목록', ng-click='cancleClick()', style="width: 10%; height: 35px")
+                                    .col-sm-12
+                                        input.form-control(name='sel_id', type='text', ng-model='sel_id', ng-hide='true')

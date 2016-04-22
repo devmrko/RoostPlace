@@ -48,7 +48,7 @@ obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document,
         */
         
         // Loading 시 Search 로딩
-        //$scope.searchClick($scope.searchTag);
+        $scope.searchClick($scope.searchTag);
 
     });
     
@@ -143,8 +143,9 @@ obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document,
     }
 
     $scope.cancleClick = function () {
-        $('#summernote').summernote('destroy');
-        $location.url('/list');
+        //$('#summernote').summernote('destroy');
+        
+        $location.url('/');
 
     }
     
@@ -207,6 +208,7 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
 
     var baseUrl = '/memo';
 
+    /*
     $( "#inp_date" ).datepicker({
       defaultDate: "",
       changeMonth: true,
@@ -214,6 +216,7 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
       numberOfMonths: 1,
       dateFormat    : "yy-mm-dd"
     });
+    */
 
     if($routeParams.idx == 'N') {
         $scope.sel_contents = '';
@@ -221,43 +224,54 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
         $scope.sel_tags = '';
         $scope.sel_id = '';
         $scope.sel_due_date = formattedDate(subtractDate(new Date(), 0));
+        $scope.sel_hits = '';
 
+        /*
         $('#summernote').summernote({
           height: 100,                 // set editor height
           minHeight: null,             // set minimum height of editor
           maxHeight: null,             // set maximum height of editor
           focus: true
         });
-
+        */
+        
     } else {
-
         var ctrUrl = baseUrl + '/searchDetail';
-        $scope.sel_id = $routeParams.idx;
         var dataObj = {};
+        
+        $scope.sel_id = $routeParams.idx;
         addDataObj(jQuery, dataObj, "sel_id", $scope.sel_id);
+        
         $http.post(ctrUrl, dataObj).success(function (returnData) {
             $scope.sel_contents = returnData.detailObj[0].contents;
-            $('#summernote').summernote('code', $scope.sel_contents);
+            //$('#summernote').summernote('code', $scope.sel_contents);
             $scope.sel_title = returnData.detailObj[0].title;
             $scope.sel_tags = returnData.detailObj[0].tags;
             $scope.sel_id = returnData.detailObj[0]._id;
             $scope.sel_notice_bool = returnData.detailObj[0].notice_bool;
             $scope.sel_due_date = returnData.detailObj[0].due_date;
+            $scope.sel_hits = returnData.detailObj[0].hits;
 
             if(returnData.detailObj[0].complete == 'y') {
                 $scope.completeButtonBool = false;
             } else {
                 $scope.completeButtonBool = true;
             }
-
+            
+            /*
             $('#summernote').summernote({
               height: 100,                 // set editor height
               minHeight: null,             // set minimum height of editor
               maxHeight: null,             // set maximum height of editor
               focus: true
             });
+            */
+            
         }).error(function (data, status, headers, config) {
-            alert('error: ' + status);
+            console.log('******** searchDetail error ************'); //debug
+            res.send(err)
+            
+            //alert('error: ' + status);
         });
     }
 
@@ -268,6 +282,7 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
     function formattedDate(date) {
         //ISO Date로 전환(달, 일자를 2자리 수로 고정하기 위해)
         var isoDate = date.toISOString();
+        
         //정규 표현식으로 변환(MM/DD/YYYY)
         //result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$2/$3/$1');
         result = isoDate.replace(/^(\d{4})\-(\d{2})\-(\d{2}).*$/, '$1-$2-$3');
@@ -286,7 +301,8 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
         var ctrUrl = baseUrl + '/savePost';
         var dataObj = returnSearchCriteria();
 
-        $scope.sel_contents = $('#summernote').summernote('code');
+        //$scope.sel_contents = $('#summernote').summernote('code');
+        
         addDataObj(jQuery, dataObj, "sel_title", $scope.sel_title);
         addDataObj(jQuery, dataObj, "sel_contents", $scope.sel_contents);
         addDataObj(jQuery, dataObj, "sel_tags", $scope.sel_tags);
@@ -297,10 +313,14 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
         $http.post(ctrUrl, dataObj).success(function (returnData) {
             // $('#summernote').summernote('destroy');
             // $location.url('/list');
+            
             $scope.cancleClick();
 
         }).error(function (data, status, headers, config) {
-            alert('error: ' + status);
+            console.log('******** savePost error ************'); //debug
+            res.send(err)
+            
+            //alert('error: ' + status);
         });
     }
 
@@ -308,5 +328,5 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
         var dataObj = {};
         return dataObj;
     }
-
+    
 }]);

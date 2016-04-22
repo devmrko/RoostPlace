@@ -11,13 +11,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var flash = require('connect-flash');
+var config = require('./models/config.json');
 
 //------------- mongojs -----------------------------------------------------------------
-// var mongo = require('mongodb');
-// var mongoose = require('mongoose');
-// var db = mongoose.connection;
-//var db =require('monk')('mongodb://dev:dev@ds047591.mongolab.com:47591/spark');
-var db = require('monk')('mongodb://psw7194:qkrtkddn@ds047591.mongolab.com:47591/spark');
+var db = require('monk')(config.db_connection_url);
 //---------------------------------------------------------------------------------------
 
 var app = express();

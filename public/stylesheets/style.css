@@ -1496,3 +1496,9 @@ position: absolute;
 	width:22px;
 	height:12px;
 }
+
+@media (max-width: 480px) {
+  .un {
+    display:none;
+  }
+}

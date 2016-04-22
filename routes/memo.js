@@ -176,16 +176,12 @@ router.post('/savePost', function (req, res, next) {
 });
 
 function searchHandler(req, res, next) {    
-    console.log("S searchHandler");
-    
     var searchText = req.body.searchText === undefined ? '' : req.body.searchText;
     var pageNo = req.body.pageNo === undefined ? 1 : req.body.pageNo;
     var searchTags = req.body.searchTags === undefined ? 'All' : req.body.searchTags;
     var completeYn = req.body.completeYn === undefined ? 'y' : req.body.completeYn;
     
     doJsonSearch(req, res, searchText, searchTags, pageNo, completeYn);
-    
-    console.log("E searchHandler");
 }
 
 function doJsonSearch(req, res, searchText, searchTags, pageNo, completeYn) {

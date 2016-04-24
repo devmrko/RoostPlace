@@ -11,7 +11,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var flash = require('connect-flash');
-var config = require('./models/config.json');
+var config = require('./config.json');
 
 //------------- mongojs -----------------------------------------------------------------
 var db = require('monk')(config.db_connection_url);

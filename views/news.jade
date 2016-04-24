@@ -48,16 +48,17 @@ section#news.module
                             .form-group
                                 .row(id='id_editComp')
                                     .col-sm-12
-                                        label(style="width: 10%") 제 목: &nbsp
-                                        input.form-control(id='id_sel_title', name='sel_title', type='text', ng-model='sel_title', style="width: 90%")
+                                        label(style="text-align: right") 제 목: &nbsp
+                                        input.form-control(id='id_sel_title', name='sel_title', type='text', ng-model='sel_title', style="width: 85%")
                                     .col-sm-12
-                                        label(style="width: 10%") 내 용: &nbsp
-                                        input.form-control(id='id_sel_title', name='sel_contents', type='text', ng-model='sel_contents', style="width: 90%; height: 200px")
+                                        label(style="text-align: right") 내 용: &nbsp
+                                        input.form-control(id='id_sel_title', name='sel_contents', type='text', ng-model='sel_contents', style="width: 85%; height: 200px")
                                     .col-sm-12
-                                        div(style="padding: 10px 0 0")
-                                            label(style="width: 10%") 작성일: &nbsp
-                                            input.form-control(type='text', ng-model='sel_due_date', name='sel_due_date', style="width: 78%")
-                                            label(style="width: 2%")
-                                            input.btn.btn-default(type='button',value='목록', ng-click='cancleClick()', style="width: 10%; height: 35px")
+                                        div(align="right", style="padding: 5px 30px 0 0")
+                                            | 작성일: &nbsp
+                                            input.form-control(style="width: 100px; text-align: center", type='text', ng-model='sel_due_date', name='sel_due_date')
+                                            &nbsp
+                                            input.btn.btn-default(style="padding: 0 0 0 0; width: 50px; height: 34px", type='button', value='목록', ng-click='cancleClick()')
                                     .col-sm-12
                                         input.form-control(name='sel_id', type='text', ng-model='sel_id', ng-hide='true')
+                                        

@@ -244,6 +244,14 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
         
         $http.post(ctrUrl, dataObj).success(function (returnData) {
             $scope.sel_contents = returnData.detailObj[0].contents;
+            //var contents = returnData.detailObj[0].contents;
+            //var contents2 = "";
+            
+            //if (contents != undefined) {
+            //    contents2 = contents.replace(/\n/g, '<br />');
+            //}
+            //$scope.sel_contents = contents2;
+            
             //$('#summernote').summernote('code', $scope.sel_contents);
             $scope.sel_title = returnData.detailObj[0].title;
             $scope.sel_tags = returnData.detailObj[0].tags;

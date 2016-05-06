@@ -7,11 +7,11 @@ html
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name="naver-site-verification" content="4e17ab3df6dedb461eb6025a967577a8e8b7d1ed")
-    meta(name="description" content="루스트,메뉴소개,갤러리,매장안내,서비스,루스트스토리,루스트소식,제주도맛집,레스토랑,분위기,와인,맥주")
+    meta(name="description" content="루스트 가맹문의 QnA")
     meta(name='author', content='spark')
     meta(property="og:type" content="website")
     meta(property="og:title" content="루스트")
-    meta(property="og:description" content="루스트,메뉴소개,갤러리,매장안내,서비스,루스트스토리,루스트소식,제주도맛집,레스토랑,분위기,와인,맥주")
+    meta(property="og:description" content="루스트 가맹문의 QnA")
     meta(property="og:image" content="http://www.roostplace.com/images/main/logo.png")
     meta(property="og:url" content="http://www.roostplace.com")
 
@@ -46,23 +46,50 @@ html
         #custom-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li.page-scroll.active
-              a(href='#home') 루스트
+              a(href='/#/#home') 루스트
             li.page-scroll
-              a(href='#dishes') 메뉴소개
+              a(href='/#/#dishes') 메뉴소개
             li.page-scroll
-              a(href='#gallery') 갤러리
+              a(href='/#/#gallery') 갤러리
             li.page-scroll
-              a(href='#store') 매장안내
+              a(href='/#/#/#store') 매장안내
             li.page-scroll
-              a(href='#services') 서비스
+              a(href='/#/#services') 서비스
             li.page-scroll
-              a(href='#about') 루스트스토리
+              a(href='/#/#about') 루스트스토리
             li.page-scroll
-              a(href='/franchise#franchise') 가맹문의            
+              a(href='#franchise') 가맹문의            
             li.page-scroll
-              a(href='#news') 루스트소식
-    
-    block content
+              a(href='/#/#news') 루스트소식    
+    // About start
+    section#franchise.module
+        .container
+            .row
+                .col-sm-6.col-sm-offset-3
+                    .module-header.wow.fadeInUp
+                        h2.module-title 가맹문의
+                        h3.module-subtitle FRANCHISE Q&A
+            // .row        
+            .row
+                .col-sm-8.col-sm-offset-2.text-center
+                    h3 "더 좋은 루스트를 만들 파트너를 찾습니다."
+                    b 루스트 플레이스의 가맹 개설에 대한 궁금한 점을
+                    br
+                    b 전화로 문의하시면 친절하고 상세히 설명드립니다.
+            // .row
+            br
+            .row
+                .col-sm-8.col-sm-offset-2.text-center
+                    img(src='../images/main/franchise_logo.png', alt='')
+            // .row
+            br
+            .row
+                .col-sm-8.col-sm-offset-2.text-center
+                    h4 가맹 관련 전화문의
+                    h3 010.8662.1482
+            // .row
+        // .container
+    // About end
     
     footer#footer
         .container

@@ -5,7 +5,7 @@ renderDaumMap(0);
 /* Store Section */
 $("#ul_store > li").click(function() {
     var str = $(this).index();
-    console.log("ul_store Index: "+ str);
+    // console.log("ul_store Index: "+ str);
     
     renderDaumMap(str);
 });

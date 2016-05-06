@@ -124,9 +124,9 @@
 		], {duration: 3000, fade: 600});
         */
         $('.slideshow').backstretch([
-			'../images/home-1.jpg',
-			'../images/home-2.jpg',
-			'../images/home-3.jpg'
+			'../images/home-1.png',
+			'../images/home-2.png',
+			'../images/home-3.png'
 		], {duration: 3000, fade: 600});
         
 		/* ---------------------------------------------- /*

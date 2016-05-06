@@ -81,9 +81,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // router js ----------------------------------------
 var routes = require('./routes/index');
 var memo = require('./routes/memo');
+var franchise = require('./routes/franchise');
 
 app.use('/', routes);
 app.use('/memo', memo);
+app.use('/franchise', franchise);
 //---------------------------------------------------
 
 // catch 404 and forward to error handler

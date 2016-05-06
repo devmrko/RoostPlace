@@ -54,7 +54,7 @@ obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document,
     
     $scope.searchClick = function (searchTag) {
         
-        console.log("memo.js searchClick....: " + searchTag);
+        //console.log("memo.js searchClick....: " + searchTag);
         
         $scope.selectedBadge = searchTag;
 
@@ -67,7 +67,7 @@ obj_NgApp.controller('ctr_memo', function ($scope, $http, sharedDObj, $document,
 
         }
         
-        console.log("memo.js searchCriteria....: " + $scope.sharedDObj.searchCriteria);
+        //console.log("memo.js searchCriteria....: " + $scope.sharedDObj.searchCriteria);
         
         if($scope.sharedDObj.searchCriteria != undefined) {
             $scope.sharedDObj.searchCriteria.searchTags = searchTag;
@@ -276,7 +276,7 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
             */
             
         }).error(function (data, status, headers, config) {
-            console.log('******** searchDetail error ************'); //debug
+            //console.log('******** searchDetail error ************'); //debug
             res.send(err)
             
             //alert('error: ' + status);
@@ -325,7 +325,7 @@ obj_NgApp.controller('ctr_memoDtl', ['$scope', '$routeParams', '$http', '$docume
             $scope.cancleClick();
 
         }).error(function (data, status, headers, config) {
-            console.log('******** savePost error ************'); //debug
+            //console.log('******** savePost error ************'); //debug
             res.send(err)
             
             //alert('error: ' + status);

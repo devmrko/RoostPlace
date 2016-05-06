@@ -1,36 +1,13 @@
 doctype html
 html
   head
-    title 루스트
-    
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name="naver-site-verification" content="4e17ab3df6dedb461eb6025a967577a8e8b7d1ed")
-    meta(name="description" content="루스트,메뉴소개,갤러리,매장안내,서비스,루스트스토리,루스트소식,제주도맛집,레스토랑,분위기,와인,맥주")
-    meta(name='author', content='spark')
-    meta(property="og:type" content="website")
-    meta(property="og:title" content="루스트")
-    meta(property="og:description" content="루스트,메뉴소개,갤러리,매장안내,서비스,루스트스토리,루스트소식,제주도맛집,레스토랑,분위기,와인,맥주")
-    meta(property="og:image" content="http://www.roostplace.com/images/main/logo.png")
-    meta(property="og:url" content="http://www.roostplace.com")
-
-    link(href='/javascripts/bootstrap/css/bootstrap.min.css', rel='stylesheet', media='screen')
-    link(href='/stylesheets/jquery-ui.custom.css', rel='stylesheet')
-    link(href='/stylesheets/simple-line-icons.css', rel='stylesheet', media='screen')
-    link(href='/stylesheets/owl.theme.css', rel='stylesheet')
-    link(href='/stylesheets/datepicker.css', rel='stylesheet', media='screen')
-    link(href='/stylesheets/style.css', rel='stylesheet', media='screen')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css', rel='stylesheet')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css', rel='stylesheet')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.css', rel='stylesheet')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.9.0/jquery.timepicker.min.css', rel='stylesheet', media='screen')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.css', rel='stylesheet')
-    link(href='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css', rel='stylesheet')
+    title 루스트    
+    include layoutmeta
+    include link
     
   body
-    #preloader(style='display: none;')
-      #status(style='display: none;')
+    #preloader
+      #status
         .status-mes
         
     nav.navbar.navbar-custom.navbar-transparent.navbar-fixed-top(role='navigation')
@@ -75,25 +52,4 @@ html
       a(href='#totop')
         i.icon-arrow-up
 
-        
-// Javascript files
-script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js')
-script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
-script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.9.0/jquery.timepicker.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/jqBootstrapValidation/1.3.7/jqBootstrapValidation.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js')
-script(src='https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js')
-script(src='/javascripts/bootstrap/js/bootstrap.min.js')
-script(src='/javascripts/ui-bootstrap-tpls-0.11.0.min.js')
-script(src='/javascripts/jquery-ui.custom.min.js')
-script(src='//apis.daum.net/maps/maps3.js?apikey=a2c084f5ab8eb1c6ab7e2f7a8440ea75')
-script(src='/javascripts/daummaps.js')
-script(src='/javascripts/custom.js')
-script(src='/javascripts/index.js')
-script(src='/javascripts/memo.js')
+include script
